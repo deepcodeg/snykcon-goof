@@ -33,25 +33,6 @@ exports.index = function (req, res, next) {
     });
 };
 
-
-exports.admin = function (req, res, next) {
-  console.log(req.body);
-  User.find({ username: req.body.username, password: req.body.password }, function (err, users) {
-    if (users.length > 0) {
-      return res.render('admin', {
-        title: 'Admin Access Granted',
-        granted: true,
-      });
-    } else {
-      return res.render('admin', {
-        title: 'Admin Access',
-        granted: false,
-      });
-    }
-  });
-
-};
-
 function parse(todo) {
   var t = todo;
 
